@@ -28,8 +28,8 @@ def read_label(filename,saveFilename):
     index = 0
     buf = f.read()
     f.close()
-    magic,labels = struct.unpack_from('II',buf,index)
-    index += struct.calcsize('II')
+    magic,labels = struct.unpack_from('>II',buf,index)
+    index += struct.calcsize('>II')
     labelArr = [0]*labels
     for x in xrange(labels):
         lableArr[x] = int(struct.unpack_from('>B',buf,index)[0])
